@@ -168,3 +168,9 @@ message(STATUS "Libraries in      : ${LIBRARY_OUTPUT_DIRECTORY}")
 
 # For Ninja cmake generator
 cmake_policy(SET CMP0058 NEW)
+
+# create config
+set(HEIF_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/api/reader ${CMAKE_SOURCE_DIR}/api/writer ${CMAKE_SOURCE_DIR}/api/common ${CMAKE_SOURCE_DIR}/api-cpp)
+set(HEIF_LIBS optimized ${CMAKE_BINARY_DIR}/lib/Release/heif_shared.lib optimized ${CMAKE_BINARY_DIR}/lib/Release/heif_writer_shared.lib optimized ${CMAKE_BINARY_DIR}/lib/Release/heifpp.lib
+              debug ${CMAKE_BINARY_DIR}/lib/Debug/heif_shared.lib debug ${CMAKE_BINARY_DIR}/lib/Debug/heif_writer_shared.lib debug ${CMAKE_BINARY_DIR}/lib/Debug/heifpp.lib)
+configure_file(${CMAKE_SOURCE_DIR}/heif.cmake.in ${CMAKE_BINARY_DIR}/heifConfig.cmake)

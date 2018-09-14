@@ -24,3 +24,5 @@ cmake_install.cmake
 # MacOS
 .DS_Store
 .idea/
+
+build*
